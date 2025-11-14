@@ -1,1 +1,31 @@
-/*   https://shorten.so/A1REF1  301
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecting…</title>
+
+  <!-- Meta refresh (immediate) as fallback for browsers without JS -->
+  <meta http-equiv="refresh" content="0;url=https://shorten.so/A1REF1">
+
+  <script>
+    // Ganti nilai di bawah dengan URL tujuan Anda.
+    (function(){
+      var target = "https://shorten.so/A1REF1"; // <-- ubah ke URL tujuan
+      // location.replace tidak menyisakan halaman ini di riwayat browser
+      if (window.location.replace) {
+        window.location.replace(target);
+      } else {
+        window.location.href = target;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Anda sedang diarahkan... Jika tidak otomatis, klik <a href="https://shorten.so/A1REF1">di sini</a>.</p>
+  <noscript>
+    <!-- Jika JavaScript dimatikan, pengguna masih bisa klik tautan ini -->
+    <p>JavaScript dinonaktifkan. Klik <a href="https://shorten.so/A1REF1">di sini</a> untuk melanjutkan.</p>
+  </noscript>
+</body>
+</html>
