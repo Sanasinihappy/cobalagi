@@ -1,56 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Images with Links</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      text-align: center;
-    }
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Info, ExternalLink } from 'lucide-react';
 
-    .image-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+const AboutPage = () => {
+  const externalUrl = 'https://drive.google.com/';
 
-    .image-container a {
-      flex: 1 1 300px;
-      max-width: 45%;
-    }
+  return (
+    <>
+      <Helmet>
+        <title>Tentang Kami - TrendyShop</title>
+        <meta name="description" content="Pelajari lebih lanjut tentang TrendyShop dan partner kami." />
+      </Helmet>
+      <div className="container mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <div className="bg-gradient-to-br from-indigo-100 to-blue-100 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-8">
+            <Info className="w-16 h-16 text-indigo-600" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Tentang TrendyShop
+          </h1>
+          <p className="text-lg text-gray-600 mb-10">
+            TrendyShop adalah tujuan utama Anda untuk menemukan produk-produk paling trendy dan berkualitas. Kami berkomitmen memberikan pengalaman belanja terbaik untuk Anda. Untuk penawaran eksklusif dari partner kami, silakan kunjungi tautan di bawah ini.
+          </p>
+          <motion.a
+            href={externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className="inline-block"
+          >
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-6 text-lg"
+            >
+              Kunjungi Partner Kami
+              <ExternalLink className="w-5 h-5 ml-2" />
+            </Button>
+          </motion.a>
+          <p className="text-sm text-gray-500 mt-6">
+            Anda akan diarahkan ke situs eksternal. Kami tidak bertanggung jawab atas konten di situs partner kami.
+          </p>
+        </motion.div>
+      </div>
+    </>
+  );
+};
 
-    .image-container img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .image-container img:hover {
-      transform: scale(1.03);
-    }
-
-    @media (max-width: 600px) {
-      .image-container a {
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="image-container">
-    <a href="https://shorten.so/A1REF1">
-      <img src="https://ik.imagekit.io/nsuqe9fi2/DAFTAR-DISINI.gif?updatedAt=1762955928937" alt="Gambar 1" />
-    </a>
-    <a href="https://shorten.so/A1REF1">
-      <img src="https://ik.imagekit.io/nsuqe9fi2/Banner%20Tanpa%20Logo%20Kakek.gif?updatedAt=1762955882122" alt="Gambar 2" />
-    </a>
-  </div>
-
-</body>
-</html>
+// Rename the file by changing export name
+export default AboutPage;
